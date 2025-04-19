@@ -9,7 +9,7 @@ import com.ukg.job_service.config.FeignClientConfig;
 
 import java.util.List;
 
-@FeignClient(name = "candidate-service", configuration = FeignClientConfig.class)
+@FeignClient(name = "candidate-service", url = "${candidate-service.url}", configuration = FeignClientConfig.class)
 public interface CandidateClient {
     @DeleteMapping("/api/candidates/jobservice/{jobId}")
     boolean deleteCandidatesByJobId(@PathVariable("jobId") Long jobId);
